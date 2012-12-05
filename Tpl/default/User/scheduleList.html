@@ -1,0 +1,92 @@
+<tagLib name="html" />
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/ui.core.js"/>
+<load href="__TMPL__Public/js/ui.dialog.js"/>
+<load href="__TMPL__Public/js/ui.datepicker.js"/>
+<load href="__TMPL__Public/js/index.js"/>
+<load href="__TMPL__Public/js/user.js"/>
+<script type="text/javascript">
+$(function() {
+	$('.datepicker').datepicker({
+		dateFormat: "yy-mm-dd",
+		showButtonPanel: true
+	});
+	$('#dateShow').datepicker();
+	$("#dialog-delSchedule").dialog({
+		bgiframe: true,
+		autoOpen: false,
+		height: 100,
+		modal: true,
+	});
+});
+</script>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/public.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/user.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/ui.all.css" />
+<include file="Public:top"/>
+<div class="main_user">
+<include file="User:leftMenu"/>
+
+<div id="dialog-delSchedule" class="dialog" title="删除日程">
+	<p>确定删除该日程？</p>
+	<div class="datalist"></div>
+	<button onclick="cancel()">取消</button>
+	<button onclick="deleteSchedule()">确定</button>
+</div>
+
+<!--右边详细信息-->
+<div class="main_schedule">
+	<h2 class="subNav">日程管理</h2>
+	<div class="showmsgpart">
+	
+	<!--显示日程表信息-->
+	<div class="sub_schedulelist">
+		<div class="listlan">
+			<div class="sc-menu">
+				<a onclick="newScheduleshow()">新建</a><a class="delete-schedule">删除</a>
+			</div>
+		</div>
+		<table>
+			<volist id="vo" name="list">
+			<tr>
+				<td width="7%" style="padding-left:8px;"><input type="checkbox" name="{$vo.schedule_id}"/></td>
+				<td width="43%">{$vo.schedule_theme}</td>
+				<td width="42%">{$vo.schedule_dateFrom}  TO  {$vo.schedule_dateTo}</td>
+				<td width="8%" style="padding-left:12px;"><div class="edit-ico"></div></td>
+			</tr>
+			</volist>
+		</table>
+		<div class="listlan">
+			<div class="sc-menu">
+				<a onclick="newScheduleshow()">新建</a><a class="delete-schedule">删除</a>
+			</div>
+		</div>
+	</div>
+	<!--新建日程表/修改-->
+	<div class="sub_newschedule">
+		<div class="listlan">
+			<div class="sc-menu">
+				<a onclick="returnback()">返回</a><a onclick="saveSchedule()">保存</a>
+			</div>
+		</div>
+		<table class="new_schedule">
+			<tr><td class="schedule_title">主题:</td><td><input type="text" style="width:100%" id="theme"/></td></tr>
+			<tr><td class="schedule_title">时间:</td>
+				<td><input type="text" class="datepicker" readonly="true" id="starttime"><span style="float:left;font-size:13px;margin:3px 7px 0 7px;">至</span><input type="text" class="datepicker" readonly="true" id="stoptime">
+				</td>
+			</tr>
+			<tr><td class="schedule_title">归类:</td><td><select><option>默认</option></select></td></tr>
+			<tr><td class="schedule_title">内容:</td><td><textarea style="width:100%;height:50px;font-size:13px;"/></textarea></td></tr>
+			<tr><td colspan="2"><div class="buttons"><a onclick="saveSchedule()">保存</a><a style="margin-left:5px;">取消</a></td></tr>
+		</table>
+		<div class="listlan">
+			<div class="sc-menu">
+				<a onclick="returnback()">返回</a><a onclick="saveSchedule()">保存</a>
+			</div>
+		</div>
+	</div>
+	</div>
+</div>
+<div id="dateShow"></div>
+</div>
+<include file="Public:footer"/>

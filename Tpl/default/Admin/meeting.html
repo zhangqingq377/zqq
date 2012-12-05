@@ -1,0 +1,86 @@
+<tagLib name="html"/>
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/jquery-ui-1.7.3.custom.min.js"/>
+<load href="__TMPL__Public/js/admin.js"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/ui.all.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/admin.css" />
+<script type="text/javascript">
+$(function() {
+	$('.datepicker').datepicker({
+		dateFormat: "yy-mm-dd",
+		showButtonPanel: true,
+	});
+});
+</script>
+<div class="title">
+	<div class="titlename">信息管理平台<a href="__APP__/">《《返回普通用户操作界面</a></div>
+	<div class="nav">
+		欢迎你，{$Think.session.loginUserName}  
+		<a href="__APP__/Public/loginOut">退出</a>
+	</div>
+</div>
+<div class="total">
+	<div class="menu">
+		<ul>
+			<li><a href="__APP__/Admin/bulletin">公告栏管理</a></li>
+			<li><a href="__APP__/Admin/duty">值班管理</a></li>
+			<li><a href="__APP__/Admin/meeting">会议管理</a><img alt="正常"class="arrow" src="__TMPL__/Public/images/sub_arrow.gif"></li>
+			<li><a href="__APP__/Admin/things">各类物资管理</a></li>
+			<li><a href="__APP__/Admin/law">规章制度管理</a></li>
+		</ul>
+	</div>
+	<div class="content-meet">
+		<div class="content-title"><b>会议管理</b><a style="display:none;width:134px;" onclick="backmain()">返回会议列表</a></div>
+		<ul>
+			<li onclick="addshow()">添加</li>
+			<li onclick="updateshow()">修改</li>
+			<li onclick="">删除</li>
+		</ul>
+		<div class="datapart">
+		<table class="list">
+		<tr>
+			<th><input type="checkbox"/></th><th>编号</th><th>主题</th><th>内容</th><th>地点</th><th>开始时间</th><th>结束时间</th><th>会议主持人</th><th>会议部门</th><th>发布人</th><th>发布时间</th><th>备注</th>
+		</tr>
+		<volist id="m" name="m">
+		<tr>
+			<td><input type="checkbox"/></td>
+			<td>{$m.meeting_id}</td>
+			<td>{$m.meeting_theme}</td>
+			<td>{$m.meeting_content}</td>
+			<td>{$m.room_name}</td>
+			<td>{$m.meeting_starttime}</td>
+			<td>{$m.meeting_stoptime}</td>
+			<td>{$m.user_name}</td>
+			<td>{$m.department_name}</td>
+			<td>{$m.meeting_postusername}</td>
+			<td>{$m.meeting_posttime}</td>
+			<td>{$m.meeting_comment}</td>
+		</tr>
+		</volist>
+		</table>
+		<div class="pages">{$mpage}</div>
+		</div>
+
+		<div class="add-content">
+			主&nbsp;&nbsp;题：<input type="text" id="m-theme"/><br/>
+			内&nbsp;&nbsp;容：<textarea id="m-content"></textarea><br/>
+			地&nbsp;&nbsp;点：<select id="m-room">
+			<volist name="room" id="room">
+				<option value="{$room.room_id}">{$room.room_name}</option>
+			</volist>
+			</select><br/>
+			时&nbsp;&nbsp;间：<input type="text" class="datepicker" readonly="true" id="time">
+			<select id="hour"><option>9</option><option>10</option><option>11</option>
+			<option>14</option><option>15</option><option>16</option><option>17</option></select>点
+			<select id="minu"><option>0</option><option>15</option><option>30</option><option>45</option></select>分
+			<br/>
+			部&nbsp;&nbsp;门：<select id="department"><option value="0">全体人员</option><volist name="dep" id="dep"><option value="{$dep.department_id}">{$dep.department_name}</option></volist></select><br/>
+			主持人：<select id="master"><volist name="user" id="user"><option value="{$user.username}">{$user.user_name}</option></volist></select><br/>
+			备&nbsp;&nbsp;注：<textarea id="m-comment"></textarea><br/>
+			<button style="margin-left:600px;" onclick="addNewMeeting()">确定</button>
+		</div>
+		<div class="update-content">
+			
+		</div>
+	</div>
+</div>

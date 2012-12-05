@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'usecar_id', 1 => 'username', 2 => 'usecar_starttime', 3 => 'usecar_stoptime', 4 => 'usecar_comment', 5 => 'car_license_number', '_autoinc' => true, '_pk' => 'usecar_id', ); ?>

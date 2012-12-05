@@ -1,0 +1,10 @@
+<!--左边导航-->
+<div class="main_userMenu">
+<h2 class="main_userMenu_title">个人中心</h2>
+<ul>	
+	<li><a href="__APP__/User/">个人信息</a></li>
+	<li><a href="__APP__/User/maillist">通讯录</a></li>
+	<li><a href="__APP__/User/scheduleList">日程管理</a></li>
+	<li><a href="__APP__/User/perSummary">个人总结</a></li>
+</ul>
+</div>

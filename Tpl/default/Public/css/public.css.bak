@@ -1,0 +1,40 @@
+body{font-family: "宋体","Arial Narrow",HELVETICA;font-size: 62.5%;}
+
+.headTitle{height:200px;width:1002px;background:url('../images/title.jpg');background-repeat:repeat;font-size:50px;
+	margin:0 125px;}
+.userTitle{margin-left:125px;width:1002px;text-align:right;position:absolute;font-size:14px;}
+.topMenu{margin-left:125px;margin-top:-20px;width:1002px;height:36px;background:url('../images/nav_bg.jpg');
+	background-repeat: repeat-x;position: relative;z-index: 1000;}
+.topMenu ul{width:100%;list-style-type:none;padding:0;margin:0;}
+.topMenu ul li{width:16.6%;}
+a{text-decoration:none;display:inline-block;margin:0 0 1px 0;padding:0;cursor:pointer;}
+.subMenu{margin:0;padding:0;float:left;}
+.subMenu a{width:100%;height:23px;text-align:center;border-left:1px solid #DDDDDD;vertical-align:center;padding-top:10px;font-size:15px;}
+.subMenu ul{display:none;}
+.subMenu li a{background:none;width:166px;height:20px;cursor:pointer;background-color:#98CCF2;}
+
+.leftPart{width:570px;height:350px;background-color:white;float:left;margin-top:50px;margin-left:125px;overflow:auto;}
+.loginPart{width:420px;height:350px;margin-left:705px;margin-top:10px;padding:50px 0 0 20px;}
+.loginPart h2{background-color:#3980F4;width:120px;height:40px;margin:0;padding:7px 0 0 15px;}
+.loginPart div{border:1px solid #3980F4;width:300px;padding:30px;}
+.loginPart input{margin:5px;}
+
+.index_main{border:1px solid #DDDDDD;width:960px;height:230px;margin-top:24px;margin-left:125px;padding:20px;}
+.gonggao{width:221px;height:120px;margin:0;position:absolute;}
+.gonggao h2{background:url('../images/menu_title.gif');height:37;width:211px;font-size:16px;color:#FFFFFF;
+	padding-left: 35px;line-height: 40px;font-weight: bold;margin:0;}
+.scrollDiv{font-size:14px;width:233px;height:100%;min-height:25px;line-height:12px;border:#ccc 1px solid;overflow:hidden;
+	padding:5px;margin:0;}
+.scrollDiv li{height:25px;padding-left:10px;cursor:pointer;}
+#btn1{float:left;font-size:13px;margin-top:3px;margin-left:20px;}
+#btn2{float:right;font-size:13px;margin-top:3px;}
+
+.s-user{width:700px;height:230px;margin-left:258px;position:absolute;float:right;border:1px solid #DDDDDD;}
+.s-user table{width:100%;}
+.s-user td{border:1px solid #DDDDDD;}
+.footer{width:1002px;height:33px;background:url('../images/footer.jpg');background-repeat:repeat;font-size:14px;
+	text-align:center;line-height:35px;margin-left:125px;margin-top:24px;}
+.footer a{text-align:center;}
+
+
+

@@ -1,0 +1,44 @@
+<tagLib name="html" />
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/index.js"/>
+<load href="__TMPL__Public/js/user.js"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/public.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/user.css" />
+<include file="Public:top"/>
+<div class="main_user">
+<include file="User:leftMenu"/>
+<!--右边详细信息-->
+<div>
+<div class="main_userMsg">
+<h2 class="subNav">个人信息</h2>
+<p>用&nbsp;户&nbsp;名:{$user.username}</p>
+<p>姓&nbsp;&nbsp;&nbsp;&nbsp;名:{$user.user_name}</p>
+<p>部&nbsp;&nbsp;&nbsp;&nbsp;门:{$depname}</p>
+<p>职&nbsp;&nbsp;&nbsp;&nbsp;位:{$posname}</p>
+<p>联系电话:{$user.user_phonenumber}</p>
+<p>电子邮件:{$user.user_email}</p>
+<input type="button" value="修改密码" onclick="showchange()"/>
+<input type="button" value="修改信息" onclick="showupdate()"/>
+</div>
+
+<div class="main_userMsg_update">
+<h2 class="subNav">个人信息>>修改信息</h2>
+<p>用&nbsp;户&nbsp;名:<input type="text" value="{$user.username}" disabled="disabled"/></p>
+<p>姓&nbsp;&nbsp;&nbsp;&nbsp;名:<input type="text" value="{$user.user_name}" disabled="disabled"/></p>
+<p>部&nbsp;&nbsp;&nbsp;&nbsp;门:<input type="text" value="{$depname}" disabled="disabled"/></p>
+<p>职&nbsp;&nbsp;&nbsp;&nbsp;位:<input type="text" value="{$posname}" disabled="disabled"/></p>
+<p>联系电话:<input type="text" value="{$user.user_phonenumber}" id="userphone"/></p>
+<p>电子邮件:<input type="text" value="{$user.user_email}" id="usermail"/></p>
+<button onclick="changeMSG()">确定</button>
+</div>
+
+<div class="main_userMsg_changePwd">
+<h2 class="subNav">个人信息>>修改密码</h2>
+<p style="margin-top:40px;">原&nbsp;密&nbsp;码:<input type="password" id="oldpwd"/></p>
+<p>新&nbsp;密&nbsp;码:<input type="password" id="newpwd"/></p>
+<p>确认密码:<input type="password" id="repwd"/></p>
+<button onclick="changePWD()">确定</button>
+</div>
+</div>
+</div>
+<include file="Public:footer"/>

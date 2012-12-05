@@ -1,0 +1,24 @@
+<tagLib name="html" />
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/index.js"/>
+<load href="__TMPL__Public/js/daily.js"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/public.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/daily.css" />
+<include file="Public:top"/>
+<div class="main_daily">
+<include file="DepSource:leftMenu"/>
+<!--右边详细信息-->
+<div class="main-management">
+<h2 class="subNav">值班列表</h2>
+<table class="duty-list">
+	<tr><th>值班日期</th><th style="width:150px;">值班人</th></tr>
+	<volist id='vo' name='list'>
+	<tr name="{$vo.duty_id}" style="text-align:center;">
+		<td>{$vo.duty_date}</td><td>{$vo.user_name}</td>
+	</tr>
+	</volist>
+</table>
+</div>
+
+</div>
+<include file="Public:footer"/>

@@ -1,0 +1,48 @@
+<html>
+<head>登录</head>
+<load href ="__TMPL__/Public/js/user.js" />
+<load href ="__TMPL__/Public/js/jquery.js" />
+<load href ="__TMPL__/Public/js/common.js" />
+<body>
+<form >
+<div>
+用户名:<input type="text" id="username"/><br>
+密码:<input type="password" id="password"/><br>
+<input type="button" value="登录" onClick="checkUser()"/>
+</div>
+</form>
+添加用户
+<form>
+<div>
+用户名：<input type="text" id="userid"/><br>
+姓名：<input type="text" id="user_name"/><br>
+部门：<select id="department">
+<volist name="list" id="vo">
+	<option value ="{$vo.department_id}">{$vo.department_name}</option>
+</volist>
+</select><br>
+职位：<input type="text" id="position"/><br>
+e-mail：<input type="text" id="e-mail"/><br>
+联系号码：<input type="text" id="phone"/><br>
+密码：<input type="text" id="password1" value="888888"/><br>
+<input type="button" value="添加" onClick="addUser()"/>
+</div>
+</form>
+修改密码
+<form>
+<div>
+用户名:<input type="text" id="username1"/><br>
+密码:<input type="password" id="password2"/><br>
+新密码:<input type="password" id="password3"/><br>
+<input type="button" value="确定" onClick="changePWD()"/>
+</div>
+</form>
+删除用户
+<form>
+<div>
+用户名:<input type="text" id="username2"/><br>
+<input type="button" value="确定" onClick="deleteUser()"/>
+</div>
+</form>
+</body>
+</html>

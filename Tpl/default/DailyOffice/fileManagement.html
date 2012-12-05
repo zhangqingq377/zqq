@@ -1,0 +1,42 @@
+<tagLib name="html" />
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/jquery-ui-1.7.3.custom.min.js"/>
+<load href="__TMPL__Public/js/index.js"/>
+<load href="__TMPL__Public/js/daily.js"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/ui.all.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/public.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/daily.css" />
+<script type="text/javascript">
+$(function() {
+	$("#upload-view").dialog({
+		bgiframe: true,
+		autoOpen: false,
+		height: 100,
+		modal: true,
+	});
+});
+</script>
+<include file="Public:top"/>
+<div class="main_daily">
+<include file="DailyOffice:leftMenu"/>
+<div class="file-management">
+<h2 class="subNav">文件管理</h2>
+<a class="sou" onclick="upload()">上传</a> <a class="sou">删除</a>
+<div style="float:right;"><input id="key"><a class="sou">搜索</a></div>
+<volist id="vo" name="filelist">
+<p>
+<a href="__URL__/download/id/{$vo.id}">{$vo.name}</a>上传时间:{$vo.creat_time}
+</p>
+</volist>
+</div>
+</div>
+
+<div id="upload-view" class="dialog" title="上传文件">
+<form action="__URL__/upload" method="POST" enctype="multipart/form-data">
+	<input name="file" id="file" type="file" class="upbt"/><br/>
+	<p style="color:red;">**文件上传的格式只支持‘doc','txt','xle','ppt’格式，请先确认文件格式，以防止上传失败</p>
+	<hr>
+	<input class="" type="submit" value="上传"/>
+</form>
+</div>
+<include file="Public:footer"/>

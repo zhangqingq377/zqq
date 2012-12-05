@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'meeting_id', 1 => 'meeting_theme', 2 => 'room_id', 3 => 'meeting_starttime', 4 => 'meeting_stoptime', 5 => 'meeting_master', 6 => 'meeting_content', 7 => 'meeting_comment', 8 => 'meeting_postusername', 9 => 'meeting_posttime', 10 => 'department_id', '_autoinc' => true, '_pk' => 'meeting_id', ); ?>

@@ -1,0 +1,101 @@
+<tagLib name="html"/>
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/jquery-ui-1.7.3.custom.min.js"/>
+<load href="__TMPL__Public/js/admin.js"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/ui.all.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/admin.css" />
+<div class="title">
+	<div class="titlename">系统管理平台<a href="__APP__/">《《返回普通用户操作界面</a></div>
+	<div class="nav">
+		欢迎你，{$Think.session.loginUserName}  
+		<a href="__APP__/Public/loginOut">退出</a>
+	</div>
+</div>
+<div class="total">
+	<div class= "menu">
+		<ul>
+			<li onclick="showuserpart()">用户管理</li>
+			<li onclick="showrolepart()">角色管理</li>
+		</ul>
+	</div>
+	
+	<div class="content-role">
+		<div class="content-title">角色组列表</div>
+		<ul>
+			<li onclick="">添加</li>
+			<li onclick="">修改</li>
+			<li onclick="">删除</li>
+		</ul>
+		<table class="list">
+		<tr>
+			<th><input type="checkbox"/></th>
+			<th>编号</th>
+			<th>组名</th>
+			<th>操作</th>
+		</tr>
+		<volist id="role" name="role">
+		<tr>
+			<td><input type="checkbox"/></td>
+			<td>{$role.role_id}</td>
+			<td>{$role.role_name}</td>
+			<td><a href="">授权</a><a href="">禁用</a><a href="">用户列表</a></td>
+		</tr>
+		</volist>
+		</table>
+	</div>
+
+
+	<div class="content-user">
+		<div class="content-title">用户管理</div>
+		<ul>
+			<li onclick="showadd()">添加用户</li>
+			<li onclick="showupd()">修改用户</li>
+			<li onclick="deleteuser()">删除用户</li>
+		</ul>
+		<table class="list">
+			<tr>
+				<th><input type="checkbox"/></th>
+				<th>用户编号</th>
+				<th>姓名</th>
+				<th>部门</th>
+				<th>职位</th>
+				<th>电子邮件</th>
+				<th>电话</th>
+				<th>角色</th>
+			</tr>
+			<volist id="vo" name="list">
+			<tr>
+				<td><input type="checkbox" name="{$vo.username}"/></td>
+				<td>{$vo.username}</td>
+				<td>{$vo.user_name}</td>
+				<td>{$vo.department_name}</td>
+				<td>{$vo.position_name}</td>
+				<td>{$vo.user_email}</td>
+				<td>{$vo.user_phonenumber}</td>
+				<td>{$vo.role_id}</td>
+			</tr>
+			</volist>
+		</table>
+		<div class="pages">共{$page}</div>
+	</div>
+
+	<div class="addUser">
+		<div class="content-title"> 》》<a class="backlist">返回用户列表</a></div>
+		<div style="margin-top:10px;">
+		<div class="addUser-content">用户编号:<input type="text" class="a-userid"/><button onclick="checkusername()">检测编号</button><span class="notes" id="notes1">用户名可使用</span><span class="notes" id="notes2">用户名已存在</span></div>
+		<div class="addUser-content">姓&nbsp;&nbsp;&nbsp;&nbsp;名:<input type="text" class="a-name"/></div>
+		<div class="addUser-content">部&nbsp;&nbsp;&nbsp;&nbsp;门:<select id="department">
+			<volist name="dep" id="dep">
+				<option value ="{$dep.department_id}">{$dep.department_name}</option>
+			</volist>
+			</select></div>
+		<div class="addUser-content">职&nbsp;&nbsp;&nbsp;&nbsp;位:<select id="position">
+			<volist name="pos" id="pos">
+				<option value="{$pos.position_id}">{$pos.position_name}</option>
+			</volist>
+			</select></div>
+		<div class="addUser-content" id="pwdpart">密&nbsp;&nbsp;&nbsp;&nbsp;码:<input type="text" id="pwd" value="888888"/></div>
+		<button id="addbtn" onclick="addUser()">添加</button><button id="updatebtn" onclick="updateUser()">修改</button>
+		</div>
+	</div>
+</div>

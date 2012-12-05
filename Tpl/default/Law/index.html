@@ -1,0 +1,17 @@
+<tagLib name="html" />
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/index.js"/>
+<load href="__TMPL__Public/js/law.js"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/public.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/law.css" />
+<include file="Public:top"/>
+<div class="main">
+<div class="submain">
+<volist name="law" id="vo">
+<div class="title">{$vo.law_name}</div>
+<hr>
+<div class="content">{$vo.law_content}</div>
+</volist>
+</div>
+</div>
+<include file="Public:footer"/>

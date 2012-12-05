@@ -1,0 +1,39 @@
+<tagLib name="html" />
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/index.js"/>
+<load href="__TMPL__Public/js/daily.js"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/public.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/daily.css" />
+<include file="Public:top"/>
+<div class="main_daily">
+<include file="DailyOffice:leftMenu"/>
+<div class="main-management">
+<h2 class="subNav">会议列表</h2>
+<table class="meeting-list">
+	<tr><th>会议主题</th><th style="width:150px;">会议开始时间</th><th>会议地点</th></tr>
+	<volist id='vo' name='list'>
+	<tr name="{$vo.meeting_id}">
+		<td class="meeting_theme">{$vo.meeting_theme}</td><td>{$vo.meeting_starttime}</td><td>{$vo.room_name}</td>
+	</tr>
+	</volist>
+</table>
+<div class="pages">共{$page}</div>
+</div>
+
+<div class="meeting-detail">
+	<h2 class="subNav"><a class="getmeetlist">会议列表</a><<会议细节</h2>
+	<div class="tou">
+	<b id="title">开会</b>
+	<hr color="#949494">
+	发布人：<span id="meet-post"></span>建立时间：<span id="settime"></span>
+	</div>
+	<p>会议主题：<span id="meet-theme"></span></p>
+	<p>会议主持人：<span id="meet-host"></span></p>
+	<p>会议内容：<span id="meet-content"></span><br></p>
+	<p>会议室：<span id="meet-room"></span></p>
+	<p>会议开始时间：<span id="meet-start"></span></p>
+	<p>会议结束时间：<span id="meet-stop"></span></p>
+</div>
+
+</div>
+<include file="Public:footer"/>

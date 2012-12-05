@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'username', 1 => 'user_password', 2 => 'role_id', 3 => 'user_name', 4 => 'department_id', 5 => 'user_email', 6 => 'user_phonenumber', 7 => 'position_id', '_autoinc' => false, '_pk' => 'username', ); ?>

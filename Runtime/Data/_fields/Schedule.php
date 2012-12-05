@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'schedule_id', 1 => 'username', 2 => 'schedule_dateFrom', 3 => 'schedule_message', 4 => 'schedule_type', 5 => 'schedule_theme', 6 => 'schedule_dateTo', 7 => 'last_edit_time', '_autoinc' => true, '_pk' => 'schedule_id', ); ?>

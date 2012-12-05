@@ -1,0 +1,47 @@
+<?php
+// 本文档自动生成，仅供测试运行
+class IndexAction extends Action
+{
+    /**
+    +----------------------------------------------------------
+    * 默认操作
+    +----------------------------------------------------------
+    */
+    public function index() {
+		if(!isset($_SESSION[C('USER_AUTH_KEY')])){
+			$this->assign('jumpUrl','__APP__/Public/login');
+			$this->error('没有登录');
+		}else{
+			$b=M("Bulletin");
+			$volist=$b->findAll();
+			//dump($volist);
+			$info = array(
+            '操作系统:'=>PHP_OS,
+            '运行环境:'=>$_SERVER["SERVER_SOFTWARE"],
+            'PHP运行方式:'=>php_sapi_name(),
+            'ThinkPHP版本:'=>THINK_VERSION,
+            '上传附件限制:'=>ini_get('upload_max_filesize'),
+            '执行时间限制:'=>ini_get('max_execution_time').'秒',
+            '服务器时间:'=>date("Y年n月j日 H:i:s"),
+            '北京时间:'=>gmdate("Y年n月j日 H:i:s",time()+8*3600),
+            '服务器域名/IP:'=>$_SERVER['SERVER_NAME'].' [ '.gethostbyname($_SERVER['SERVER_NAME']).' ]',
+            );
+			$this->assign('info',$info);
+			$this->assign("list",$volist);
+			$this->display();
+		}
+    }
+
+    /**
+    +----------------------------------------------------------
+    * 探针模式
+    +----------------------------------------------------------
+    */
+    public function checkEnv() {
+        load('pointer',THINK_PATH.'/Tpl/Autoindex');//载入探针函数
+        $env_table = check_env();//根据当前函数获取当前环境
+        echo $env_table;
+    }
+
+}
+?>

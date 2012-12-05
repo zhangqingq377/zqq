@@ -1,0 +1,77 @@
+<tagLib name="html" />
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/jquery-ui-1.7.3.custom.min.js"/>
+<load href="__TMPL__Public/js/index.js"/>
+<load href="__TMPL__Public/js/user.js"/>
+<script type="text/javascript">
+$(function() {
+	$("#dialog-addMail").dialog({
+		bgiframe: true,
+		autoOpen: false,
+		height: 290,
+		modal: true,
+	});
+	$("#dialog-delMail").dialog({
+		bgiframe: true,
+		autoOpen: false,
+		height: 100,
+		modal: true,
+	});
+});
+</script>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/public.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/user.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/ui.all.css" />
+<include file="Public:top"/>
+<div class="main_user">
+<include file="User:leftMenu"/>
+<!--右边详细信息-->
+<div>
+<div class="main_maillist">
+
+<div id="dialog-addMail" class="dialog" title="添加联系人">
+	<p id="validateTips">请输入联系人姓名,电子邮件或联系电话.</p>
+	<form>
+	<fieldset>
+		<label for="name">姓名</label>
+		<input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all" />
+		<label for="email">Email</label>
+		<input type="text" name="email" id="email" value="" class="text ui-widget-content ui-corner-all" />
+		<label for="phone">联系电话</label>
+		<input type="text" name="phone" id="phone" value="" class="text ui-widget-content ui-corner-all" />
+	</fieldset>
+	</form>
+	<button onclick="cancel()">取消</button>
+	<button onclick="addNewMail()">添加</button>
+</div>
+
+<div id="dialog-delMail" class="dialog" title="删除联系人">
+	<p>确定删除该联系人？</p>
+	<div class="datalist"></div></div>
+	<button onclick="cancel()">取消</button>
+	<button onclick="deleteMail()">确定</button>
+</div>
+
+<h2 class="subNav">通讯录</h2>
+<div class="c-menu">
+	<a id="create-mail">新建联系人</a><a id="delete-mail">删除联系人</a><a>复制到组</a>
+</div>
+<div class="sub_maillist">
+	<table>
+		<tbody><th><input type="checkbox"/></th><th>姓名</th><th>电子邮件</th><th>联系电话</th>
+			<volist id="vo" name="list">
+				<tr>
+					<td width="8%"><input type="checkbox" name="{$vo.mail_id}"/></td>
+					<td width="18%">{$vo.mail_username}</td>
+					<td width="43%"><img id="ico_email"/>{$vo.mail_email}</td>
+					<td width="29%"><img id="ico_phone"/>{$vo.mail_userphone}</td>
+				</tr>
+			</volist>
+		</tbody>
+	</table>
+	<div class="pages">共{$page}</div>
+</div>
+</div>
+</div>
+</div>
+<include file="Public:footer"/>

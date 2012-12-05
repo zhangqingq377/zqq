@@ -1,0 +1,7 @@
+.headTitle{height:200px;width:1200px;background:url('../images/title1c.jpg');background-repeat:repeat;font-size:50px;}
+.topMenu ul{list-style-type:none;padding:0;margin:0;}
+a{text-decoration:none;display:inline-block;margin:1px;padding:0;}
+.subMenu{margin:0;padding:0;float:left;}
+.subMenu a{width:100px;height:30px;text-align:right;border:1px solid #DDDDDD;text-align:left;vertical-align:center;padding:3px;}
+.subMenu ul{display:none;}
+.subMenu li a{background:none;width:100px;height:20px;cursor:pointer;background-color:#DDDDDD;}

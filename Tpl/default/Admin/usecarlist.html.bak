@@ -1,0 +1,48 @@
+<tagLib name="html"/>
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/jquery-ui-1.7.3.custom.min.js"/>
+<load href="__TMPL__Public/js/admin.js"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/ui.all.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/admin.css" />
+<script type="text/javascript">
+$(function() {
+	$('.datepicker').datepicker({
+		dateFormat: "yy-mm-dd",
+		showButtonPanel: true,
+	});
+});
+</script>
+<div class="title">
+	<div class="titlename">信息管理平台<a href="__APP__/">《《返回普通用户操作界面</a></div>
+	<div class="nav">
+		欢迎你，{$Think.session.loginUserName}  
+		<a href="__APP__/Public/loginOut">退出</a>
+	</div>
+</div>
+<div class="total">
+	<div class="menu">
+		<ul>
+			<li><a href="__APP__/Admin/bulletin">公告栏管理</a></li>
+			<li><a href="__APP__/Admin/duty">值班管理</a></li>
+			<li><a href="__APP__/Admin/meeting">会议管理</a></li>
+			<li><a href="__APP__/Admin/things">各类物资管理</a><img alt="正常" id="m" class="arrow" src="__TMPL__/Public/images/sub_arrow.gif"></li>
+			<li><a href="__APP__/Admin/law">规章制度管理</a></li>
+		</ul>
+	</div>
+
+	<div class="content-things">
+		<div class="content-title"><a href="__APP__/Admin/things"><<返回车辆管理界面 </a>关于车牌号{$number}的车辆使用记录</div>
+		<table class="list">
+		<tr>
+			<th>编号</th><th>使用人</th><th>开始使用时间</th><th>结束使用时间</th><th>备注</th><th>最新记录</th>
+		</tr>
+		<volist name="list" id="vo">
+		<tr>
+			<td>{$vo.usecar_id}</td><td>{$vo.user_name}</td><td>{$vo.usecar_starttime}</td><td>{$vo.usecar_stoptime}</td>
+			<td>{$vo.usecar_comment}</td><td>{$vo.link_car}</td>
+		</tr>
+		</volist>
+		</table>
+	</div>
+	
+</div>

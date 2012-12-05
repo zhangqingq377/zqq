@@ -1,0 +1,24 @@
+<tagLib name="html" />
+<load href="__TMPL__Public/js/jquery.js"/>
+<load href="__TMPL__Public/js/index.js"/>
+<load href="__TMPL__Public/js/daily.js"/>
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/public.css" />
+<link rel="stylesheet" type="text/css" href="__TMPL__Public/css/daily.css" />
+<include file="Public:top"/>
+<div class="main_daily">
+<include file="DepSource:leftMenu"/>
+<!--右边详细信息-->
+<div class="main-management">
+<h2 class="subNav">部门车辆列表</h2>
+<table class="duty-list">
+	<tr><th>车牌号</th><th>颜色</th><th>使用情况</th><th>操作</th></tr>
+	<volist id='vo' name='list'>
+	<tr style="text-align:center;">
+		<td>{$vo.car_license_number}</td><td>{$vo.car_color}</td><td>{$vo.car_type}</td><th><button class="usecar">使用</button></th>
+	</tr>
+	</volist>
+</table>
+</div>
+
+</div>
+<include file="Public:footer"/>

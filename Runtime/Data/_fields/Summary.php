@@ -1,0 +1,2 @@
+<?php
+return array ( 0 => 'summary_id', 1 => 'username', 2 => 'summary_to', 3 => 'summary_senddate', 4 => 'summary_content', 5 => 'summary_reply', 6 => 'summary_editdate', 7 => 'summary_theme', 8 => 'summary_backdate', '_autoinc' => true, '_pk' => 'summary_id', ); ?>

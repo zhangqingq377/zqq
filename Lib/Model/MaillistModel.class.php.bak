@@ -1,0 +1,8 @@
+<?php
+class MaillistModel extends Model{
+	public function addMail($username,$mail_name,$mail_phone,$mail_email){
+		$Mail=M('Maillist');
+		
+	}
+}
+?>
